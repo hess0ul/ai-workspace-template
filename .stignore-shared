@@ -1,0 +1,7 @@
+// Shared Syncthing ignore patterns (versioned). On every device, .stignore contains:
+//   #include .stignore-shared
+/.git
+(?d)*.tmp
+(?d)*.sync-conflict-*
+/scratch
+.claude/settings.local.json

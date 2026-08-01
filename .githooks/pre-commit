@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# Pre-commit: gitleaks secret scan on staged content. Never bypassed (--no-verify forbidden).
+set -uo pipefail
+
+GITLEAKS="$(command -v gitleaks || true)"
+if [ -z "$GITLEAKS" ] && [ -n "${LOCALAPPDATA:-}" ] && [ -x "$LOCALAPPDATA/Microsoft/WinGet/Links/gitleaks.exe" ]; then
+  GITLEAKS="$LOCALAPPDATA/Microsoft/WinGet/Links/gitleaks.exe"
+fi
+
+if [ -z "$GITLEAKS" ]; then
+  echo "ERROR: gitleaks not found — install it before committing:" >&2
+  echo "  Windows: winget install Gitleaks.Gitleaks | macOS: brew install gitleaks | Linux: see github.com/gitleaks/gitleaks" >&2
+  exit 1
+fi
+
+# NOTE: 'gitleaks protect' is deprecated since v8.19 and scans nothing — use 'git --staged'.
+"$GITLEAKS" git --staged --config .gitleaks.toml --redact -v
+RC=$?
+if [ "$RC" -ne 0 ]; then
+  echo "" >&2
+  echo "COMMIT BLOCKED: potential secret detected by gitleaks." >&2
+  echo "-> Remove the secret, replace it with a vault pointer (see .claude/rules/security.md)." >&2
+  echo "-> Confirmed false positive: targeted allowlist in .gitleaks.toml, with justification." >&2
+  exit "$RC"
+fi
+exit 0

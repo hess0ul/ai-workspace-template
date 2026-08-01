@@ -1,0 +1,11 @@
+# Gitleaks — workspace config. Default rules + extensions below.
+# Confirmed false positive -> targeted allowlist WITH a justifying comment, never --no-verify.
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Paths that contain no secrets by construction"
+paths = [
+  '''brain/meta/templates/.*''',   # templates with <...> placeholders
+]

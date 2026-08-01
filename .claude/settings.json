@@ -1,0 +1,38 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(bash .claude/skills/brain-search/scripts/brain.sh*)",
+      "Bash(git status*)",
+      "Bash(git log*)",
+      "Bash(git diff*)",
+      "Bash(git branch*)",
+      "Read(./brain/**)",
+      "Read(./docs/**)",
+      "Read(./code/**)"
+    ],
+    "deny": [
+      "Read(**/.env)",
+      "Read(**/.env.*)",
+      "Read(**/*.pem)",
+      "Read(**/*.key)",
+      "Read(**/*.p12)",
+      "Read(**/*.pfx)",
+      "Read(**/id_rsa*)",
+      "Read(**/id_ed25519*)",
+      "Read(**/*.kdbx)",
+      "Read(**/secrets/**)"
+    ]
+  },
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/check-journal.sh"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,26 @@
+# --- transient ---
+scratch/
+*.tmp
+
+# --- Claude Code local ---
+.claude/settings.local.json
+
+# --- Syncthing (device-local; .stignore-shared IS versioned) ---
+.stfolder/
+.stignore
+*.sync-conflict-*
+
+# --- secrets: never in the repo ---
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa*
+id_ed25519*
+*.kdbx
+secrets/
+
+# --- code/ projects with their own repo: add here case by case ---
+# code/<project>/
