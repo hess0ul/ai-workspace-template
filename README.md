@@ -40,6 +40,7 @@ One source of truth per fact: state lives in the brain, steps live in runbooks, 
 - **Versioned runbooks** — every deployment command captured live into `docs/<app>/runbook/v1/`; a major architecture change opens `v2/` and supersedes (never deletes) the old one.
 - **Professional git discipline** — protected `main`, conventional commits, branch + `--no-ff` merge for everything except routine brain appends. Works solo; scales to merge requests the day you add a remote.
 - **Security by default** — gitleaks pre-commit hook (blocking, tested), deny-listed secret file reads for agents, vault-pointer convention (`vault kv get ...`) so secrets never enter notes or runbooks.
+- **CI safety net included** — a ready-to-use pipeline (`.gitlab-ci.yml`, adaptable elsewhere): relative link-check (`scripts/link-check.sh`), strict brain hygiene audit (`BRAIN_AUDIT_STRICT=1`), gitleaks on full history, and a battle-tested markdownlint config where every disabled rule is justified.
 - **Claude Code native, portable by design** — skills (`brain`, `brain-search`, `runbook`), three subagents (`brain-librarian`, `brain-curator`, `doc-writer`), path-scoped rules; other tools read the same `AGENTS.md`.
 
 ## Quick start
