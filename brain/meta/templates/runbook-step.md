@@ -26,7 +26,8 @@ Expected output:
 <expected output / success criterion>
 ```
 
-> [!warning] <Gotcha if any, and its remedy.>
+> [!warning]
+> <Gotcha if any, and its remedy.>
 
 ---
 Next step: [<NN+1>-<slug>](<NN+1>-<slug>.md) · Contents: [runbook](../index.md)
