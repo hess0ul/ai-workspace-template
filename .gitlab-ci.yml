@@ -1,0 +1,36 @@
+# Workspace CI — safety net on every push/MR (GitLab example; adapt runner tags to your setup).
+# Jobs: relative links, brain hygiene, secret scan (full history), markdown lint.
+
+stages: [verify]
+
+link-check:
+  stage: verify
+  image: debian:13-slim
+  script:
+    - bash scripts/link-check.sh
+
+brain-audit:
+  stage: verify
+  image: debian:13-slim
+  variables:
+    BRAIN_AUDIT_STRICT: "1" # audit exits 1 on any missing hub or type
+  script:
+    - bash .claude/skills/brain-search/scripts/brain.sh audit
+
+gitleaks:
+  stage: verify
+  image:
+    name: ghcr.io/gitleaks/gitleaks:v8.30.1
+    entrypoint: [""]
+  variables:
+    GIT_DEPTH: "0" # full history — a secret committed then removed is still a leak
+  script:
+    - gitleaks git --config .gitleaks.toml --redact -v
+
+markdownlint:
+  stage: verify
+  image:
+    name: davidanson/markdownlint-cli2:v0.23.2
+    entrypoint: [""]
+  script:
+    - markdownlint-cli2 "brain/**/*.md" "docs/**/*.md" "*.md"

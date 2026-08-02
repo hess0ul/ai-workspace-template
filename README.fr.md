@@ -40,6 +40,7 @@ Une seule source de vérité par fait : l'état vit dans le brain, les étapes d
 - **Runbooks versionnés** — chaque commande de mise en service capturée en direct dans `docs/<app>/runbook/v1/` ; un changement majeur d'architecture ouvre `v2/` et supersède (sans jamais supprimer) l'ancien.
 - **Discipline git professionnelle** — `main` protégé, conventional commits, branche + merge `--no-ff` pour tout sauf les ajouts courants du brain. Fonctionne en solo ; passe aux merge requests le jour où tu ajoutes un remote.
 - **Sécurité par défaut** — hook pre-commit gitleaks (bloquant, testé), lectures de fichiers secrets interdites aux agents, convention pointeur-vault (`vault kv get ...`) pour qu'aucun secret n'entre jamais dans une note ou un runbook.
+- **Filet CI inclus** — pipeline prête à l'emploi (`.gitlab-ci.yml`, adaptable ailleurs) : link-check des liens relatifs (`scripts/link-check.sh`), audit d'hygiène du brain en mode strict (`BRAIN_AUDIT_STRICT=1`), gitleaks sur l'historique complet, et une config markdownlint éprouvée où chaque règle désactivée est justifiée.
 - **Natif Claude Code, portable par design** — skills (`brain`, `brain-search`, `runbook`), trois sous-agents (`brain-librarian`, `brain-curator`, `doc-writer`), rules par chemin ; les autres outils lisent le même `AGENTS.md`.
 
 ## Démarrage rapide

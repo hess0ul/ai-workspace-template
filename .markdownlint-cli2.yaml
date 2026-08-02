@@ -1,0 +1,23 @@
+# Markdown lint — permissive config: structural rules only, no style policing.
+# Every disabled rule has a reason; battle-tested on a 220-file workspace.
+config:
+  MD013: false # line length — register v2 = one fact per line, length is free
+  MD033: false # inline HTML — badges/centering in READMEs
+  MD041: false # first line must be h1 — our files start with frontmatter
+  MD024:
+    siblings_only: true # duplicate headings OK when not siblings (e.g. "## Rules" per app)
+  MD036: false # emphasis as heading — common in dense notes
+  MD060: false # table pipe alignment — pure style, no rendering/parsing impact
+  MD022: false # blank line under headings — register v2 is deliberately compact
+  MD032: false # blank lines around lists — CommonMark renders fine without
+  MD028: false # blank line between blockquotes — our multi-paragraph callouts do this on purpose
+  MD004: false # bullet style +/- — historical logs keep their verbatim bullets
+  MD026: false # trailing punctuation in headings
+  MD029: false # ordered list numbering — continued numbering (steps 3-6 after variants 1-2) is intended
+  MD031: false # blank lines around fences — CommonMark allows a fence to interrupt a paragraph
+# Kept ACTIVE on purpose: MD040 (fence language — untyped fences can be misparsed),
+# MD038 (spaces in code spans), MD058 (tables glued to text do NOT parse as tables in GFM).
+ignores:
+  - "code/**"
+  - "scratch/**"
+  - ".claude/plugins/**"

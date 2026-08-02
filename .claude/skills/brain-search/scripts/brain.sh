@@ -166,12 +166,15 @@ cmd_audit() {
   [ "$n" -eq 0 ] && printf 'OK: every note folder has a hub.\n'
   printf '\n## Notes without a frontmatter type:\n'; local m=0
   while IFS= read -r -d '' f; do
+    case "$f" in */CLAUDE.md|./CLAUDE.md) continue ;; esac # rules file, not a note
     head -1 "$f" | grep -q '^---$' || { printf -- '- %s (no frontmatter)\n' "${f#./}"; m=$((m+1)); continue; }
     awk 'NR==1&&$0=="---"{fm=1;next} fm==1&&$0=="---"{exit 1} fm==1&&/^type:/{found=1} END{exit found?0:1}' "$f" \
       || { printf -- '- %s (no type:)\n' "${f#./}"; m=$((m+1)); }
   done < <(list_md)
   [ "$m" -eq 0 ] && printf 'OK: every note has a type.\n'
   printf '\n— %d folder(s) without hub · %d note(s) without type\n' "$n" "$m"
+  # Strict mode (CI): BRAIN_AUDIT_STRICT=1 → exit 1 if any issue.
+  if [ "${BRAIN_AUDIT_STRICT:-0}" = "1" ] && [ $((n + m)) -gt 0 ]; then return 1; fi
   return 0
 }
 
