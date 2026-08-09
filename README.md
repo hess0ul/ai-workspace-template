@@ -13,7 +13,7 @@ Most "second brain" setups are built for humans and choke AI agents with context
 
 ## The three pillars
 
-```
+```text
 your-workspace/
 ├── CLAUDE.md            # thin router (imports AGENTS.md) — the always-loaded map
 ├── AGENTS.md            # canonical agent guide (Linux Foundation standard)
@@ -67,7 +67,7 @@ First session checklist: create your first area (the `brain` skill scaffolds it)
 
 ### Progressive disclosure — pay only for what you read
 
-```
+```text
 brain/index.md          ~1 line per area          } always cheap
   └── <area>/index.md   "path — what — when"      } loaded on entry
         └── note.md     300-1200 tokens, atomic   } loaded on demand
@@ -77,7 +77,7 @@ An agent answering *"what's the IP of service X?"* reads 3 small files, not your
 
 ### The memory loop
 
-```
+```text
      ┌──────────── work happens ────────────┐
      ▼                                      │
   capture (note, v2) ──► index ──► log ──► state.md ──► journal

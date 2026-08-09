@@ -32,7 +32,7 @@ Auto-loaded rules: `.claude/rules/brain-format.md` (operational summary of this 
 
 ## Area layout
 
-```
+```text
 brain/<area>/
 ├── CLAUDE.md         # hard area imperatives (lazily loaded)
 ├── index.md          # routing hub ≤150 lines: "path — what — when to open"
