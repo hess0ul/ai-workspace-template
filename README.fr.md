@@ -13,7 +13,7 @@ La plupart des « second brains » sont pensés pour des humains et noient les a
 
 ## Les trois piliers
 
-```
+```text
 ton-workspace/
 ├── CLAUDE.md            # routeur mince (importe AGENTS.md) — la carte toujours chargée
 ├── AGENTS.md            # guide agents canonique (standard Linux Foundation)
@@ -67,7 +67,7 @@ Checklist de première session : créer ta première aire (le skill `brain` la s
 
 ### Divulgation progressive — tu ne paies que ce que tu lis
 
-```
+```text
 brain/index.md          ~1 ligne par aire          } toujours léger
   └── <aire>/index.md   « chemin — quoi — quand »  } chargé à l'entrée
         └── note.md     300-1200 tokens, atomique  } chargé à la demande
@@ -77,7 +77,7 @@ Un agent qui répond à *« quelle est l'IP du service X ? »* lit 3 petits fich
 
 ### La boucle mémoire
 
-```
+```text
      ┌──────────── le travail se fait ──────────┐
      ▼                                          │
   capture (note v2) ──► index ──► log ──► state.md ──► journal

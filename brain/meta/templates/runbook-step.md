@@ -22,7 +22,7 @@ Goal: <one line, why this command>.
 
 Expected output:
 
-```
+```text
 <expected output / success criterion>
 ```
 
