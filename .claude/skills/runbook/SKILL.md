@@ -10,7 +10,7 @@ description: Write and maintain the human documentation in docs/ — how-it-work
 
 ## Per-app layout
 
-```
+```text
 docs/<app>/
 ├── index.md            # what the app is + section links
 ├── how-it-works/
