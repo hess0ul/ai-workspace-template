@@ -130,9 +130,10 @@ modified: 2026-08-01
 
 1. Update the affected **note(s)**.
 2. Propagate the touched **`index.md`**.
-3. Add **1 dated line** to the area `log.md`: `- 2026-08-01 — <past-tense verb> <what>. Notes: <paths>.`
-4. Update the active worksite's **`state.md`**: done / remaining / open questions.
-5. During a deployment session: every executed command captured **immediately** in the runbook step (`docs/<app>/runbook/`), never reconstructed afterwards.
+3. Update the affected **`docs/` pages** (how-it-works + runbook), cross-checking the brain note against the runbook so the three pillars agree. A catch-up too big for now → recorded as debt in `state.md`/backlog, never forgotten.
+4. Add **1 dated line** to the area `log.md`: `- 2026-08-01 — <past-tense verb> <what>. Notes: <paths>.`
+5. Update the active worksite's **`state.md`**: done / remaining / open questions.
+6. During a deployment session: every executed command captured **immediately** in the runbook step (`docs/<app>/runbook/`), never reconstructed afterwards.
 
 Success criterion: an AI with zero context, given the files, knows exactly where things stand and what to do next.
 

@@ -12,7 +12,7 @@ Meta: brain conventions live in `brain/meta/conventions.md` (single source of tr
 
 ## Hard rules (all pillars)
 
-1. **Post-action protocol** — after every change: update the note(s) → propagate the touched `index.md` → add 1 dated line to the area `log.md` → update the active worksite's `state.md` (done / remaining / open questions). An AI with zero context must be able to resume from the files alone.
+1. **Post-action protocol** — after every change: update the note(s) → propagate the touched `index.md` → **update the affected `docs/` pages** (how-it-works + runbook, cross-checking the brain note against the runbook) → add 1 dated line to the area `log.md` → update the active worksite's `state.md` (done / remaining / open questions). The three pillars stay coherent within the same session; a docs catch-up too big for now is recorded as debt (state/backlog) instead of being forgotten. An AI with zero context must be able to resume from the files alone.
 2. **Journal** — every work session = 1 entry in `brain/journal/<yyyy-mm>.md` (Done / Files / Keywords / Remaining).
 3. **Naming** — kebab-case ASCII everywhere, no accents. Reserved names: `index.md` (hub), `log.md`, `state.md`, `CLAUDE.md`. `README.md` is banned inside `brain/`.
 4. **Links** — standard relative Markdown links, one single hop index → note, breadcrumb on the last line. No wikilinks.

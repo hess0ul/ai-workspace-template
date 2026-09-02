@@ -33,9 +33,9 @@ As soon as a fact is established or changes, in the same pass:
 
 1. **Place it**: existing note? new note? new area? (templates: `brain/meta/templates/`)
 2. **Write** in register v2: 1 line = 1 fact; verbatim in code fences; `OK:/FAIL:/WARN:/CRIT:/TODO:`; no emojis; frontmatter `type` + `description` + `status`.
-3. **Propagate**: folder `index.md` → area `log.md` (1 dated line) → worksite `state.md`.
+3. **Propagate**: folder `index.md` → affected `docs/` pages (how-it-works + runbook; a catch-up too big for now → debt in `state.md`) → area `log.md` (1 dated line) → worksite `state.md`.
 4. **Journal**: at session end, entry in `brain/journal/<yyyy-mm>.md` (Done / Files / Keywords / Remaining).
-5. **Tests**: survival (would a fresh session recover the fact + its why?), docs parity (deployment touched → runbook updated?). When in doubt: document rather than omit.
+5. **Tests**: survival (would a fresh session recover the fact + its why?), docs parity (a changed fact that a `docs/` page describes → that page updated?). When in doubt: document rather than omit.
 
 Obsolete → `status: superseded` + `superseded_by:`. Never silent deletion.
 
@@ -55,6 +55,7 @@ Detail: [references/consolidation.md](references/consolidation.md).
 ## Self-review before closing
 
 - [ ] Every new/changed fact written in its note + index propagated + log line added.
+- [ ] `docs/` pages affected by the change updated — or the catch-up recorded as debt.
 - [ ] Worksite `state.md` up to date (done / remaining / questions).
 - [ ] Journal entry written.
 - [ ] Register v2 respected (1 line = 1 fact, verbatim, no emojis).

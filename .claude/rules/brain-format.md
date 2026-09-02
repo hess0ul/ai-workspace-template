@@ -9,6 +9,6 @@ paths: ["brain/**"]
 - Frontmatter: `type` required + `description` (what + when to open) + `status: current|superseded`. Domain fields in frontmatter, not in the body.
 - Relative Markdown links, max one hop from an index, breadcrumb `↑ [parent](index.md)` on the last line.
 - `index.md` = hub of every folder (never `README.md`). Table "Note | What | When to open".
-- Every write triggers the post-action protocol: note → index → area `log.md` (1 dated line) → `state.md` if a worksite is active.
+- Every write triggers the post-action protocol: note → index → affected `docs/` pages → area `log.md` (1 dated line) → `state.md` if a worksite is active.
 - Deep hierarchies → YAML block; enumerations of ≥3 items → markdown table.
 - Obsolete → `status: superseded` + `superseded_by:`. Never silent deletion.
